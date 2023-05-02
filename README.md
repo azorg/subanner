@@ -21,6 +21,15 @@ sudo make install
 ```bash
 ./clock.sh
 ```
+```
+ OOOOO   OOOOO          OOOOOOO  OOOOO              OO   OOOOO  
+O    OO O    OO    OO   O       O    OO    OO      O O  O     O 
+O   O O O   O O    OO   O       O   O O    OO     O  O        O 
+O  O  O O  O  O          OOOOO  O  O  O          O   O   OOOOO  
+O O   O O O   O    OO         O O O   O    OO   OOOOOOO       O 
+OO    O OO    O    OO   O     O OO    O    OO        O  O     O 
+ OOOOO   OOOOO           OOOOO   OOOOO               O   OOOOO
+```
 
 ## Uninstal (from /usr/local)
 ```bash
