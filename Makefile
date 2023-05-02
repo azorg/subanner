@@ -25,8 +25,8 @@ pkg/font8sysv/font8sysv.go:
 
 build: $(OUT)
 
-run:
-	go run cmd/$(CMD)/$(CMD).go
+run: $(FONT)
+	go run cmd/$(CMD)/$(CMD).go "Hello!"
 
 clean:
 	rm -f $(FONT)

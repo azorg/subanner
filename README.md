@@ -4,7 +4,10 @@ Writed on Golang
 
 ## Run
 ```bash
-make run MESSAGE
+make run
+```
+```
+go cmd/subanner/subanner.go "Message"
 ```
 
 ## Build
