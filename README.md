@@ -7,7 +7,7 @@ Writed on Golang
 make run
 ```
 ```
-go cmd/subanner/subanner.go "Message"
+go run cmd/subanner/subanner.go "Message"
 ```
 
 ## Build
