@@ -19,8 +19,15 @@ addspace() {
 }
 
 # head
+# ====
 cat << EOF
-var Font = []struct {
+// Font 8x8 source
+// File: "font8sysv.go"
+
+package font8sysv
+
+// ----------------------------------------------------------------------------
+var Font8src = []struct {
 	cod int      // index (ASCII/KOI8-R code)
 	chr string   // UTF-8 code
 	val []string // [8]
@@ -28,14 +35,15 @@ var Font = []struct {
 EOF
 
 # body
-for i in `seq 0x20 0xFF`
+# ====
+for i in `seq 0x20 0x7F`
 do
   CH=`chr $i`
 
   STR="$CH"
 
   [ "$CH" == "\""  ] && STR="\\$CH"
-  [ "$CH" == "\\"  ] && STR="\\\\"
+  #[ "$CH" == "\\"  ] && STR="\\\\"
   [ "$i" -eq "127" ] && STR="[DEL]"
 
   printf "\t{0x%04X, \"\\\u%04X\", []string{ // \"%s\"" $i $i "$STR"
@@ -62,5 +70,11 @@ do
 done
 
 # tail
-echo "}"
+# ====
+cat << EOF
+} // Font8src
+// ----------------------------------------------------------------------------
+
+/*** end of "font8sysv.go" file ***/
+EOF
 

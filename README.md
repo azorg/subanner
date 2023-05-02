@@ -14,11 +14,17 @@ make
 
 ## Instal (to /usr/local)
 ```bash
-make install
+sudo make install
+```
+
+## Run simple clock demo
+```bash
+./clock.sh
 ```
 
 ## Uninstal (from /usr/local)
 ```bash
-make uninstall
+sudo make uninstall
 ```
+### ☭ Workers of the world, unite! ☭
 

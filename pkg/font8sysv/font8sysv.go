@@ -1,4 +1,10 @@
-var Font = []struct {
+// Font 8x8 source
+// File: "font8sysv.go"
+
+package font8sysv
+
+// ----------------------------------------------------------------------------
+var Font8src = []struct {
 	cod int      // index (ASCII/KOI8-R code)
 	chr string   // UTF-8 code
 	val []string // [8]
@@ -603,7 +609,7 @@ var Font = []struct {
 		" #####  ",
 		"        "}},
 
-	{0x005C, "\u005C", []string{ // "\\"
+	{0x005C, "\u005C", []string{ // "\"
 		"#       ",
 		" #      ",
 		"  #     ",
@@ -963,4 +969,7 @@ var Font = []struct {
 		"# # # # ",
 		"        "}},
 
-}
+} // Font8src
+// ----------------------------------------------------------------------------
+
+/*** end of "font8sysv.go" file ***/

@@ -5,36 +5,48 @@ CMD := subanner
 PRJ := $(CMD)
 OUT := $(BIN)/$(CMD)
 
-FONT     := font_8x8/font_8x8.go
-FONT_SRC := font_8x8/font_8x8_src.go
+FONT    := pkg/font8/font8.go
+FONTSRC := pkg/font8src/font8src.go pkg/font8src/font8make.go
+MKFONT  := mkfont/mkfont.go
 
-.PHONY: all build run install uninstall clean
+.PHONY: all mod font sysv build run clean install uninstall
 
 all: build
 
+mod: go.mod
+
+font: $(FONT)
+
+sysv: pkg/font8sysv/font8sysv.go pkg/font8sysv/font8make.go
+	go run mkfont/mkfont-sysv.go > $(FONT)
+
+pkg/font8sysv/font8sysv.go:
+	bash pkg/font8sysv/grab_banner.sh > pkg/font8sysv/font8sysv.go
+
 build: $(OUT)
-
-$(FONT): $(FONT_SRC)
-	go run $(FONT_SRC) > $(FONT)
-
-go.mod:
-	go mod init $(PRJ)
-
-$(OUT): $(FONT) go.mod
-	mkdir -p $(BIN)
-	go build -o $(BIN) $(PRJ)/cmd/$(CMD)/
 
 run:
 	go run cmd/$(CMD)/$(CMD).go
 
-install: $(OUT)
-	cp $(OUT) $(PREFFIX)/$(BIN)/
-
-uninstall:
-	rm -f $(PREFFIX)/$(BIN)/$(CMD)
-
 clean:
 	rm -f $(FONT)
 	rm -f $(OUT)
-	rm -rf $(BIN)
+	@#rm -rf $(BIN)
+
+install: $(OUT)
+	cp $(OUT) $(PREFIX)/$(BIN)/
+
+uninstall:
+	rm -f $(PREFIX)/$(BIN)/$(CMD)
+
+go.mod:
+	go mod init $(PRJ)
+
+$(FONT): $(FONTSRC)
+	go run $(MKFONT) > $(FONT)
+
+$(OUT): $(FONT) pkg/font8/font8print.go go.mod
+	mkdir -p $(BIN)
+	go build -o $(BIN) $(PRJ)/cmd/$(CMD)/
+
 
