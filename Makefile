@@ -34,7 +34,7 @@ clean:
 	@#rm -rf $(BIN)
 
 install: $(OUT)
-	cp $(OUT) $(PREFIX)/$(BIN)/
+	install $(OUT) $(PREFIX)/$(BIN)/
 
 uninstall:
 	rm -f $(PREFIX)/$(BIN)/$(CMD)
