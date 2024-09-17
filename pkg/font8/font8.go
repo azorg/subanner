@@ -6,7 +6,7 @@
 package font8
 
 // each symbol has 8 bytes (index by unicode rune)
-var Font8 = map[rune]string {
+var Font8 = map[rune]string{
 	0x0020: "\x00\x00\x00\x00\x00\x00\x00\x00", // " " [0x20]
 	0x0021: "\x08\x1C\x1C\x08\x08\x00\x08\x00", // "!" [0x21]
 	0x0022: "\x14\x14\x00\x00\x00\x00\x00\x00", // `"` [0x22]

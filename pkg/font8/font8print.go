@@ -8,15 +8,15 @@ package font8
 import (
 	"fmt"
 	"strings"
-  "unicode/utf8"
+	"unicode/utf8"
 )
 
 // Print big string (word) to console
 // (set dot="#" or "[]" for example)
 func Print(word, dot string) {
-  if len(dot) == 0 {
-    dot = "#" // set default
-  }
+	if len(dot) == 0 {
+		dot = "#" // set default
+	}
 	off := strings.Repeat(" ", utf8.RuneCountInString(dot))
 
 	for i := 0; i < 8; i++ {
